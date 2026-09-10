@@ -97,6 +97,22 @@ Os enseña, tarea a tarea, qué destino elegiríais y por qué.
      }'
    ```
 
+   En PowerShell, `curl` es un alias de `Invoke-WebRequest` y no entiende
+   `-H`/`-d` tal cual (falla con `Cannot bind parameter 'Headers'` o
+   similar) — usad `Invoke-RestMethod` con el cuerpo construido aparte:
+
+   ```powershell
+   $body = @{
+       team = "vuestro_equipo"
+       token = "el_token_que_os_dieron"
+       repo_url = "https://github.com/vuestro-equipo/vuestro-repo"
+       ref = "v1"
+       batch = "known_batch"
+   } | ConvertTo-Json
+
+   Invoke-RestMethod -Uri "https://cbtarena.redmushroom-ead22109.swedencentral.azurecontainerapps.io/submit" -Method Post -ContentType "application/json" -Body $body
+   ```
+
 Hasta un número limitado de intentos oficiales (os lo dice la
 organización) — se queda con el mejor. Podéis repetir el envío (con un tag
 nuevo) si algo salió mal en el primero.
