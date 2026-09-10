@@ -1,0 +1,122 @@
+[
+  {
+    "task_id": "t001",
+    "prompt": "Corrige un typo en el README: donde dice 'levanata el servidor' debería decir 'levanta el servidor'.",
+    "context": { "module": "docs", "change_type": "bug_fix", "risk_area": null, "estimated_size": "XS" },
+    "constraints": { "max_cost_eur": 0.01, "max_latency_ms": 1500 }
+  },
+  {
+    "task_id": "t002",
+    "prompt": "Documenta en el README de starter_kit qué hace practice_harness.py y cómo se ejecuta.",
+    "context": { "module": "starter_kit", "change_type": "docs", "risk_area": null, "estimated_size": "XS" },
+    "constraints": { "max_cost_eur": 0.01, "max_latency_ms": 1500 }
+  },
+  {
+    "task_id": "t003",
+    "prompt": "Añade un test para _percentile en scoring.py que compruebe que devuelve 0.0 cuando la lista de latencias está vacía.",
+    "context": { "module": "scoring", "change_type": "test", "risk_area": null, "estimated_size": "S" },
+    "constraints": { "max_cost_eur": 0.015, "max_latency_ms": 2000 }
+  },
+  {
+    "task_id": "t004",
+    "prompt": "El juez KeywordOverlapJudge no distingue mayúsculas ni acentos: 'Cancelación' y 'cancelacion' deberían contar como la misma palabra clave. Corrige la comparación.",
+    "context": { "module": "judge", "change_type": "bug_fix", "risk_area": null, "estimated_size": "S" },
+    "constraints": { "max_cost_eur": 0.015, "max_latency_ms": 2000 }
+  },
+  {
+    "task_id": "t005",
+    "prompt": "Añade un flag --json a 'arena run-checkpoint' para que imprima el resultado como JSON en vez de la tabla de texto.",
+    "context": { "module": "cli", "change_type": "feature", "risk_area": null, "estimated_size": "S" },
+    "constraints": { "max_cost_eur": 0.015, "max_latency_ms": 2000 }
+  },
+  {
+    "task_id": "t006",
+    "prompt": "Añade *.log al .gitignore para que uvicorn.log no se cuele en los commits.",
+    "context": { "module": "repo", "change_type": "chore", "risk_area": null, "estimated_size": "XS" },
+    "constraints": { "max_cost_eur": 0.01, "max_latency_ms": 1500 }
+  },
+  {
+    "task_id": "t007",
+    "prompt": "Implementa un endpoint GET /teams que liste, usando StoragePort, todos los equipos que ya tienen al menos un intento guardado.",
+    "context": { "module": "api", "change_type": "feature", "risk_area": null, "estimated_size": "M" },
+    "constraints": { "max_cost_eur": 0.03, "max_latency_ms": 4000 }
+  },
+  {
+    "task_id": "t008",
+    "prompt": "Añade un nuevo proveedor simulado echo_provider.py que devuelva el prompt tal cual, útil para pruebas de humo del pipeline sin variación aleatoria.",
+    "context": { "module": "providers", "change_type": "feature", "risk_area": null, "estimated_size": "M" },
+    "constraints": { "max_cost_eur": 0.03, "max_latency_ms": 4000 }
+  },
+  {
+    "task_id": "t009",
+    "prompt": "Refactoriza build_attempt_summary para calcular también la mediana de latencia, no solo el percentil 95, y añade el campo median_latency_ms a AttemptSummary.",
+    "context": { "module": "scoring", "change_type": "refactor", "risk_area": null, "estimated_size": "M" },
+    "constraints": { "max_cost_eur": 0.03, "max_latency_ms": 4000 }
+  },
+  {
+    "task_id": "t010",
+    "prompt": "Añade el campo created_at (fecha y hora) a AttemptSummary y persiste el momento real de cada intento en la tabla de SQLite, para poder mostrar el historial de intentos en el dashboard.",
+    "context": { "module": "storage", "change_type": "feature", "risk_area": null, "estimated_size": "M" },
+    "constraints": { "max_cost_eur": 0.03, "max_latency_ms": 4000 }
+  },
+  {
+    "task_id": "t011",
+    "prompt": "gateway_multi_provider.py no maneja bien un coste 0 exacto para el proveedor human_developer cuando falta flat_cost_eur; añade un valor por defecto razonable.",
+    "context": { "module": "gateway", "change_type": "bug_fix", "risk_area": null, "estimated_size": "S" },
+    "constraints": { "max_cost_eur": 0.015, "max_latency_ms": 2000 }
+  },
+  {
+    "task_id": "t012",
+    "prompt": "Añade paginación (parámetros limit y offset) al endpoint GET /leaderboard.json para checkpoints con muchos equipos.",
+    "context": { "module": "api", "change_type": "feature", "risk_area": null, "estimated_size": "M" },
+    "constraints": { "max_cost_eur": 0.03, "max_latency_ms": 4000 }
+  },
+  {
+    "task_id": "t013",
+    "prompt": "Documenta en el README el límite de 3 intentos oficiales por checkpoint y qué pasa si un equipo lo supera.",
+    "context": { "module": "docs", "change_type": "docs", "risk_area": null, "estimated_size": "S" },
+    "constraints": { "max_cost_eur": 0.015, "max_latency_ms": 2000 }
+  },
+  {
+    "task_id": "t014",
+    "prompt": "Escribe un test de integración que compruebe que el cuarto intento oficial de un equipo lanza MaxAttemptsExceeded.",
+    "context": { "module": "dispatcher", "change_type": "test", "risk_area": null, "estimated_size": "M" },
+    "constraints": { "max_cost_eur": 0.03, "max_latency_ms": 4000 }
+  },
+  {
+    "task_id": "t015",
+    "prompt": "Añade al practice_harness.py un resumen final con el número de tareas enrutadas a cada modelo del catálogo.",
+    "context": { "module": "starter_kit", "change_type": "feature", "risk_area": null, "estimated_size": "M" },
+    "constraints": { "max_cost_eur": 0.03, "max_latency_ms": 4000 }
+  },
+  {
+    "task_id": "t016",
+    "prompt": "Migra el adaptador de almacenamiento de SQLite a PostgreSQL sin cambiar el contrato de StoragePort ni el Dispatcher.",
+    "context": { "module": "storage", "change_type": "refactor", "risk_area": null, "estimated_size": "L" },
+    "constraints": { "max_cost_eur": 0.06, "max_latency_ms": 8000 }
+  },
+  {
+    "task_id": "t017",
+    "prompt": "Sustituye el Sandbox Runner actual (subprocess) por un adaptador de contenedores Docker que aísle la red y limite CPU y memoria, implementando el mismo SandboxPort.",
+    "context": { "module": "sandbox", "change_type": "feature", "risk_area": "sandbox_isolation", "estimated_size": "L" },
+    "constraints": { "max_cost_eur": 0.06, "max_latency_ms": 8000 }
+  },
+  {
+    "task_id": "t018",
+    "prompt": "Investiga si hay una condición de carrera en count_attempts que permitiría a un equipo colar un cuarto intento oficial enviando varias peticiones concurrentes antes de que se guarde el tercer intento.",
+    "context": { "module": "dispatcher", "change_type": "bug_fix", "risk_area": "scoring_integrity", "estimated_size": "L" },
+    "constraints": { "max_cost_eur": 0.06, "max_latency_ms": 8000 }
+  },
+  {
+    "task_id": "t019",
+    "prompt": "Añade autenticación de equipos a la API para que un equipo no pueda disparar un checkpoint en nombre de otro equipo.",
+    "context": { "module": "api", "change_type": "feature", "risk_area": "auth", "estimated_size": "L" },
+    "constraints": { "max_cost_eur": 0.06, "max_latency_ms": 8000 }
+  },
+  {
+    "task_id": "t020",
+    "prompt": "Añade al catálogo un modelo intermedio, entre el ligero y el potente, y su proveedor simulado correspondiente con precio y perfil de latencia propios.",
+    "context": { "module": "gateway", "change_type": "feature", "risk_area": null, "estimated_size": "M" },
+    "constraints": { "max_cost_eur": 0.03, "max_latency_ms": 4000 }
+  }
+]
