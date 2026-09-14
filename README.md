@@ -1,4 +1,4 @@
-# Starter kit — CaixaBank Tech × UPC, Reto de innovación 2026
+# Starter kit — Reto de innovación 2026
 
 Plantilla base para construir vuestro router: el código que decide, para
 cada ticket de desarrollo que os llega, si lo resuelve un modelo LLM (y
